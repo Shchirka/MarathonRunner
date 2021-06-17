@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Marathon Runner</string>
+    <string name="google_map_api_key">AIzaSyDM0A2RkGGRJ3sU_zcYJQg4gPGGDxQ9FQQ</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prompt_email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="sign_in">Sign In</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email_registration">Email Registration</string>
+    <string name="collection_users">Users</string>
+    <string name="set_nickname">Nickname</string>
+    <string name="set_name">Name</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="home">Home</string>
+    <string name="run">Run</string>
+    <string name="friends">Friends</string>
+    <string name="settings">Settings</string>
+    <string name="about_us">About Us</string>
+    <string name="close_the_app">Close the app</string>
+    <string name="status">Status</string>
+    <string name="running_history">Running history</string>
+    <string name="marathons">Marathons</string>
+    <string name="store">Store</string>
+    <string name="my_posts">My posts</string>
+    <string name="account_settings">Account settings</string>
+    <string name="sign_out">Sign out</string>
+    <string name="post">Post/Remember</string>
+    <string name="clear">Clear</string>
+</resources>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.ChangeAccInfoFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change your data"
+        android:textAppearance="@style/close"
+        android:layout_marginVertical="22dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New nickname: "
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="@style/status_items"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#00ACFF"
+            android:textColorHint="#A1A1A1"
+            android:padding="12dp"
+            android:background="@drawable/text_field"
+            android:layout_weight="1"
+            android:id="@+id/edit_nickname"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New name: "
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="@style/status_items"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#00ACFF"
+            android:textColorHint="#A1A1A1"
+            android:padding="12dp"
+            android:background="@drawable/text_field"
+            android:layout_weight="1"
+            android:id="@+id/edit_name"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="New photo: "
+            android:textAppearance="@style/status_items"
+            android:textSize="18sp"/>
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="8dp"
+            android:src="@drawable/ic_add_photo"
+            android:background="@color/white"
+            android:id="@+id/edit_photo"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="All fields don't have to be filled in"
+        android:textSize="12sp"
+        android:textColor="#A1A1A1"
+        android:layout_gravity="end"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm changes"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="22dp"
+        android:textAppearance="@style/start_stop"
+        android:background="@drawable/sign_in_register"
+        android:id="@+id/confirm_account_changes"/>
+</LinearLayout>

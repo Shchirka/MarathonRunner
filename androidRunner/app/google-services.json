@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "358638893325",
+    "project_id": "androidrunner-316013",
+    "storage_bucket": "androidrunner-316013.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358638893325:android:fadef5db452dc7d0b5d844",
+        "android_client_info": {
+          "package_name": "ua.kpi.comsys.androidrunner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358638893325-0qtln2btug61baug65sopbf8poo5rod5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRk9zhfxzHGaYmenS4eO6NGgQqHTdyxvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "358638893325-0qtln2btug61baug65sopbf8poo5rod5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

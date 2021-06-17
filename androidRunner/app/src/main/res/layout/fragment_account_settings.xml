@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".fragment.AccountSettingsFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:layout_marginVertical="15dp"
+        app:civ_border_width="1dp"
+        app:civ_border_color="#00ACFF"
+        android:id="@+id/settings_photo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="18dp"
+        android:background="@drawable/text_field">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Email: "
+            android:textAppearance="@style/points_24"
+            android:textSize="16sp"
+            android:background="@drawable/ic_acc_settings"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            android:textColor="#00ACFF"
+            android:id="@+id/settings_email"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="18dp"
+        android:background="@drawable/text_field">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="@style/points_24"
+            android:textSize="16sp"
+            android:background="@drawable/ic_acc_settings"
+            android:text="Nickname: "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            android:textColor="#00ACFF"
+            android:id="@+id/settings_nickname"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="18dp"
+        android:background="@drawable/text_field">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="@style/points_24"
+            android:textSize="16sp"
+            android:background="@drawable/ic_acc_settings"
+            android:text="Name: "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            android:textColor="#00ACFF"
+            android:id="@+id/settings_name"/>
+    </LinearLayout>
+</LinearLayout>

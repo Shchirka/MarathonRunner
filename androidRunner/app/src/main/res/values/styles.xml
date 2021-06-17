@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="android:buttonBarPositiveButtonStyle">@style/MyBorderlessButton</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/MyBorderlessButton</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">#FF8E00</item>
+        <item name="android:windowTitleStyle">@style/MyTitleTextStyle</item>
+        <!-- Used for the background -->
+        <item name="android:windowBackground">@drawable/custom_input</item>
+    </style>
+    <style name="MyTitleTextStyle">
+        <item name="android:textColor">#00ACFF</item>
+        <item name="android:textAppearance">@style/marathon_runner</item>
+    </style>
+    <style name="MyBorderlessButton">
+        <!-- Set background text size of the buttons here -->
+        <item name="android:background" />
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#00ACFF</item>
+    </style>
+    <style name="marathon_runner">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#FF8E00</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <style name="home">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#FF8E00</item>
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+    <style name="run">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <style name="close">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">#FF8E00</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <style name="marathon">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">#FF8E00</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <style name="status_items">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#FF8E00</item>
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+    <style name="start_stop">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <style name="nickname">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <style name="name">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+    <style name="points_24">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+    <style name="forgot_pass">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#424242</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+    <style name="register">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FF8E00</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+    <style name="marathon_avail">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#00ACFF</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+    <style name="posts_nickname">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#222222</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+    <style name="posts_date">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#A2A2A2</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+</resources>

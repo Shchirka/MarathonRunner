@@ -1,0 +1,42 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/marathon_instore_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="12dp"
+        android:textAppearance="@style/name"
+        android:textColor="#FF8E00"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/marathon_instore_price"
+        android:layout_marginHorizontal="4dp"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/home"
+        android:textSize="22sp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/ic_points"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_margin="12dp"
+        android:text="Buy it"
+        android:textAppearance="@style/start_stop"
+        android:textColor="#FFE5C4"
+        android:background="@drawable/timer_start_button_states"
+        android:id="@+id/buy_marathon"/>
+</LinearLayout>
