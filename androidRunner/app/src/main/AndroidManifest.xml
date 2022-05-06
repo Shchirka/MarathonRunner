@@ -27,8 +27,6 @@
         <activity android:name=".InfoMarathonActivity" />
         <activity android:name=".UsersActivity" />
         <activity android:name=".permission.MapsPermissionActivity" />
-        <activity android:name=".account.ResetPasswordActivity" />
-        <activity android:name=".account.RegisterActivity" />
         <activity android:name=".RunActivity" />
         <activity android:name=".FriendsPostsActivity" />
         <activity android:name=".StoreActivity" />
@@ -56,6 +54,9 @@
             android:enabled="true"
             android:exported="false" />
 
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_map_api_key" />
