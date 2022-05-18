@@ -2,28 +2,22 @@ package ua.kpi.comsys.androidrunner.permission;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
 
 import ua.kpi.comsys.androidrunner.HomeActivity;
 import ua.kpi.comsys.androidrunner.R;
 import ua.kpi.comsys.androidrunner.RunActivity;
 
-import static android.content.ContentValues.TAG;
-
 public class MapsPermissionActivity extends AppCompatActivity {
 
     private static final int ERROR_DIALOG_REQUEST = 9001;
+    public static boolean trainingIsChosen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +41,26 @@ public class MapsPermissionActivity extends AppCompatActivity {
         permissionCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivity.redirectActivity(MapsPermissionActivity.this, RunActivity.class);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MapsPermissionActivity.this, R.style.MyAlertDialogStyle);
+                builder.setTitle("Choice");
+                builder.setMessage("Choose what do you want to do: ропаолрмосрпрспмридплпгалоплрпсррмлвдгвю");
+
+                builder.setPositiveButton("Training", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        trainingIsChosen = true;
+                        HomeActivity.redirectActivity(MapsPermissionActivity.this, RunActivity.class);
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("Just run", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        HomeActivity.redirectActivity(MapsPermissionActivity.this, RunActivity.class);
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
             }
         });
     }

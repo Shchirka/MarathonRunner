@@ -13,7 +13,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -28,9 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.Polyline;
@@ -49,7 +46,6 @@ import ua.kpi.comsys.androidrunner.RunActivity;
 import ua.kpi.comsys.androidrunner.models.User;
 import ua.kpi.comsys.androidrunner.service.LocationService;
 
-import static android.content.ContentValues.TAG;
 import static ua.kpi.comsys.androidrunner.RunActivity.LOCATION_PERMISSION_REQUEST_CODE;
 import static ua.kpi.comsys.androidrunner.RunActivity.clearAll;
 import static ua.kpi.comsys.androidrunner.RunActivity.countDistance;
@@ -106,6 +102,8 @@ public class TimerFragment extends Fragment {
 
         databaseReferenceUser = FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+        distanceDifference = 0;
 
         init();
         runButton.setOnClickListener(new View.OnClickListener() {
@@ -279,7 +277,7 @@ public class TimerFragment extends Fragment {
                         .addAll(coordinates).clickable(false);
                 route = mMap.addPolyline(polylineOptions);
                 route.setColor(Color.parseColor("#FF8E00"));
-                route.setWidth(2);
+                route.setWidth(4);
                 for(int i = 1; i < coordinates.size(); i++){
                     distanceDifference += countDistance(coordinates.get(i).latitude, coordinates.get(i - 1).latitude,
                             coordinates.get(i).longitude, coordinates.get(i - 1).longitude);
@@ -289,9 +287,9 @@ public class TimerFragment extends Fragment {
                 postTime = (double) Math.round(seconds*10)/10000.0;
                 gainedPoints = (int)(postDistance/postTime);
                 if(gainedPoints == 1){
-                    message = "You are beginner? Well, you will be better soon!";
+                    message = "You are a beginner? Well, you will be better soon!";
                 }else if(gainedPoints == 0) {
-                    message = "You was just walking? Oh, you will be better, I promise!";
+                    message = "You were just walking? Oh, you will be better, I promise!";
                 }else if(gainedPoints == 2){
                     message = "Well done! But you can run faster, can't you! I believe in you, sportsman";
                 }else if(gainedPoints == 3){

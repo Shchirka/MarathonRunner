@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidRunner"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SingleMarathonActivity"></activity>
+        <activity android:name=".SingleMarathonActivity" />
         <activity android:name=".InfoMarathonActivity" />
         <activity android:name=".UsersActivity" />
         <activity android:name=".permission.MapsPermissionActivity" />

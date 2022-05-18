@@ -41,11 +41,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -58,9 +55,11 @@ import java.util.Locale;
 
 import ua.kpi.comsys.androidrunner.fragment.ChronometerFragment;
 import ua.kpi.comsys.androidrunner.fragment.TimerFragment;
+import ua.kpi.comsys.androidrunner.fragment.TrainingFragment;
 import ua.kpi.comsys.androidrunner.models.UploadPost;
 import ua.kpi.comsys.androidrunner.permission.MapsPermissionActivity;
 
+import static ua.kpi.comsys.androidrunner.permission.MapsPermissionActivity.trainingIsChosen;
 import static ua.kpi.comsys.androidrunner.service.LocationService.coordinates;
 
 
@@ -98,6 +97,8 @@ public class RunActivity extends AppCompatActivity implements OnMapReadyCallback
     public String[] permissionsLocation;
     public String[] permissionsStorage;
 
+    Toast toast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,7 +132,7 @@ public class RunActivity extends AppCompatActivity implements OnMapReadyCallback
                 builder.setTitle("Clearing");
                 builder.setMessage("You wanna remove your result?");
 
-                builder.setPositiveButton("Yeap", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Yep", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         clearAll();
@@ -156,7 +157,7 @@ public class RunActivity extends AppCompatActivity implements OnMapReadyCallback
                     uploadPost(RunActivity.this);
                 }
                 else{
-                    Toast.makeText(RunActivity.this, "You didn't run yet!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RunActivity.this, "You haven't run yet!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -280,8 +281,12 @@ public class RunActivity extends AppCompatActivity implements OnMapReadyCallback
     public static void clearAll(){
         if(ChronometerFragment.route != null) ChronometerFragment.route.remove();
         if(TimerFragment.route != null) TimerFragment.route.remove();
+        if(TrainingFragment.route != null) TrainingFragment.route.remove();
         coordinates.clear();
         distanceDifference = 0;
+        mMap.clear();
+        TrainingFragment.tableIsEmpty = true;
+        TrainingFragment.trainingTable.removeAllViews();
     }
 
     public static double countDistance(double lat1, double lat2, double long1, double long2){

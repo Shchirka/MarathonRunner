@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -59,6 +60,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private final static int RC_SIGN_IN = 123;
 
+    Toast toast;
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -105,6 +108,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
+
+        toast = new Toast(getApplicationContext());
 
         progressBar.setVisibility(View.VISIBLE);
         createRequest();
@@ -167,46 +172,45 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 if(user.getUid().equals(userID)){
                                     Intent intent = new Intent(LoginActivity.this, MapsPermissionActivity.class);
                                     startActivity(intent);
-                                }
-                                else{
-                                    FirebaseDatabase.getInstance().getReference("Users")
-                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                            .setValue(createdUser).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            if(task.isSuccessful()){
-                                                Toast.makeText(LoginActivity.this, "User has been registered successfully",
-                                                        Toast.LENGTH_LONG).show();
-                                                storageReference.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                                        .child("accountPhotos").child("accountPhoto.jpg")
-                                                        .putFile(Uri.parse("android.resource://"
-                                                                + getPackageName() + "/" + R.drawable.empty_photo));
-                                                FirebaseDatabase.getInstance().getReference("Friends")
-                                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                                        .setValue("friends");
-                                                FirebaseDatabase.getInstance().getReference("Posts")
-                                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                                        .setValue("posts");
-                                                FirebaseDatabase.getInstance().getReference("History")
-                                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                                        .setValue("history");
-                                                FirebaseDatabase.getInstance().getReference("Nicknames").child("nickname")
-                                                        .setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                                progressBar.setVisibility(View.GONE);
-                                                //redirect to runs instead of login!!!!
-                                                startActivity(new Intent(LoginActivity.this, AccountSettingsActivity.class));
-                                            }
-                                            else{
-                                                Toast.makeText(LoginActivity.this, "Sorry auth failed. Try again",
-                                                        Toast.LENGTH_LONG).show();
-                                                progressBar.setVisibility(View.GONE);
-                                            }
-                                        }
-                                    });
+                                    return;
                                 }
                             }
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(createdUser).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    if(task.isSuccessful()){
+                                        toast.makeText(LoginActivity.this, "User has been created successfully",
+                                                Toast.LENGTH_LONG).show();
+                                        storageReference.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .child("accountPhotos").child("accountPhoto.jpg")
+                                                .putFile(Uri.parse("android.resource://"
+                                                        + getPackageName() + "/" + R.drawable.empty_photo));
+                                        FirebaseDatabase.getInstance().getReference("Friends")
+                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue("friends");
+                                        FirebaseDatabase.getInstance().getReference("Posts")
+                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue("posts");
+                                        FirebaseDatabase.getInstance().getReference("History")
+                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue("history");
+                                        FirebaseDatabase.getInstance().getReference("Nicknames").child("nickname")
+                                                .setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                        progressBar.setVisibility(View.GONE);
+                                        //redirect to runs instead of login!!!!
+                                        startActivity(new Intent(LoginActivity.this, AccountSettingsActivity.class));
+                                    }
+                                    else{
+                                        toast.makeText(LoginActivity.this, "Sorry auth failed. Try again",
+                                                Toast.LENGTH_LONG).show();
+                                        progressBar.setVisibility(View.GONE);
+                                    }
+                                }
+                            });
                         } else {
-                            Toast.makeText(LoginActivity.this, "Sorry auth failed.", Toast.LENGTH_SHORT).show();
+                            toast.makeText(LoginActivity.this, "Sorry auth failed.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

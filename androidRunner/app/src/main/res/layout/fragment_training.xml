@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.TimerFragment"
+    android:orientation="horizontal"
+    android:weightSum="3">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/text_field">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0"
+            android:id="@+id/training_table"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
+
+        </TableLayout>
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <cn.iwgang.countdownview.CountdownView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                app:isSuffixTextBold="true"
+                app:isHideTimeBackground="false"
+                app:timeBgRadius="24dp"
+                app:timeBgSize="48dp"
+                android:id="@+id/countdown"
+                app:isShowMinute="true"
+                app:isShowSecond="true"
+                app:isShowMillisecond="true"
+                app:timeTextColor="@color/white"
+                app:timeTextSize="24sp"
+                app:suffixTextSize="24sp"
+                app:suffixMinute=":"
+                app:suffixSecond=":"
+                app:suffixMillisecond=""
+                app:isTimeTextBold="true"
+                android:layout_gravity="bottom"
+                android:layout_marginVertical="8dp"/>
+
+        </LinearLayout>-->
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/training_start_button"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:text="Start"
+            android:textAppearance="@style/close"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/training_setup_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/training_continue_button"
+            android:visibility="invisible"
+            android:enabled="false"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:text="Continue"
+            android:textAppearance="@style/close"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/training_setup_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/training_finish_button"
+            android:visibility="invisible"
+            android:enabled="false"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:text="Finish"
+            android:textAppearance="@style/close"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/training_setup_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/training_setup_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:text="Set Up"
+            android:textAppearance="@style/close"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/training_start_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

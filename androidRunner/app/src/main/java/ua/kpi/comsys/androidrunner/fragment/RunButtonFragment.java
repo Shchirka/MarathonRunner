@@ -23,6 +23,8 @@ import android.widget.EditText;
 import ua.kpi.comsys.androidrunner.R;
 import ua.kpi.comsys.androidrunner.RunActivity;
 
+import static ua.kpi.comsys.androidrunner.permission.MapsPermissionActivity.trainingIsChosen;
+
 public class RunButtonFragment extends Fragment {
 
     private AppCompatButton runButton;
@@ -50,6 +52,16 @@ public class RunButtonFragment extends Fragment {
                 smthOpen((RunActivity)getActivity());
             }
         });
+
+        if(trainingIsChosen){
+            trainingIsChosen = false;
+            Fragment fragment = new TrainingFragment();
+            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.hide(getActivity().getSupportFragmentManager().findFragmentById(R.id.run_fragment))
+                    .add(R.id.run_fragment, fragment);
+            fragmentTransaction.addToBackStack("back");
+            fragmentTransaction.commit();
+        }
     }
 
     public void smthOpen(Activity activity){

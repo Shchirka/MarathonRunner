@@ -110,6 +110,8 @@ public class ChronometerFragment extends Fragment implements View.OnClickListene
 
         handler = new Handler();
 
+        distanceDifference = 0;
+
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             public void onChronometerTick(Chronometer c) {
 
@@ -206,7 +208,7 @@ public class ChronometerFragment extends Fragment implements View.OnClickListene
                                 .addAll(coordinates).clickable(false);
                         route = mMap.addPolyline(polylineOptions);
                         route.setColor(Color.parseColor("#FF8E00"));
-                        route.setWidth(2);
+                        route.setWidth(4);
                         for(int i = 1; i < coordinates.size(); i++){
                             distanceDifference += countDistance(coordinates.get(i).latitude, coordinates.get(i - 1).latitude,
                                     coordinates.get(i).longitude, coordinates.get(i - 1).longitude);
@@ -216,9 +218,9 @@ public class ChronometerFragment extends Fragment implements View.OnClickListene
                         postTime = (double) Math.round(seconds*10)/10000.0;
                         gainedPoints = (int)(postDistance/postTime);
                         if(gainedPoints == 1){
-                            message = "You are beginner? Well, you will be better soon!";
+                            message = "You are a beginner? Well, you will be better soon!";
                         }else if(gainedPoints == 0) {
-                            message = "You was just walking? Oh, you will be better, I promise!";
+                            message = "You were just walking? Oh, you will be better, I promise!";
                         }else if(gainedPoints == 2){
                             message = "Well done! But you can run faster, can't you? I believe in you, sportsman";
                         }else if(gainedPoints == 3){
